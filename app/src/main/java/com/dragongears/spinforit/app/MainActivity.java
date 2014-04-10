@@ -32,6 +32,7 @@ public class MainActivity extends ActionBarActivity {
             }
         };
         spinnerImage.setOnClickListener(spinnerTapListener);
+        TapSpinner();
     }
 
     public void TapSpinner() {
