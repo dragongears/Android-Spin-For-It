@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <string-array name="pointerStyle">
+        <item name="hand">Hand</item>
+        <item name="arrow">Arrow</item>
+        <item name="spinner">Spinner</item>
+        <item name="bottle">Bottle</item>
+    </string-array>
+
+    <string-array name="pointerStyleValues">
+        <item name="hand">1000</item>
+        <item name="arrow">5000</item>
+        <item name="spinner">30000</item>
+        <item name="bottle">60000</item>
+    </string-array>
+
+    <string-array name="spinDuration">
+        <item name="short">Short</item>
+        <item name="normal">Normal</item>
+        <item name="long">Long</item>
+        <item name="very_long">Very Long</item>
+    </string-array>
+
+    <string-array name="spinDurationValues">
+        <item name="short">1</item>
+        <item name="normal">5</item>
+        <item name="long">10</item>
+        <item name="very_long">20</item>
+    </string-array>
+
+</resources>

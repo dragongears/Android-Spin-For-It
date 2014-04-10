@@ -1,5 +1,8 @@
 package com.dragongears.spinforit.app;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -12,6 +15,7 @@ import android.widget.ImageView;
 
 
 public class MainActivity extends ActionBarActivity {
+    SharedPreferences preferences;
     private ImageView spinnerImage;
     private View.OnClickListener spinnerTapListener;
 
@@ -19,6 +23,7 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
         InitializeApp();
     }
 
@@ -64,6 +69,8 @@ public class MainActivity extends ActionBarActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
+            Intent i = new Intent(MainActivity.this, SettingsActivity.class);
+            startActivity(i);
             return true;
         }
         return super.onOptionsItemSelected(item);
