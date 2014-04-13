@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <ListPreference
-        android:key="pointer_style"
+        android:key="pref_pointer_style"
         android:title="Pointer Style"
         android:summary="Define how the pointer looks"
-        android:defaultValue="hand"
+        android:defaultValue="hand_512"
         android:entries="@array/pointerStyle"
         android:entryValues="@array/pointerStyleValues"
         />
     <ListPreference
-        android:key="spin_duration"
+        android:key="pref_spin_duration"
         android:title="Spin Duration"
         android:summary="Define how long the pointer spins"
-        android:defaultValue="normal"
+        android:defaultValue="1"
         android:entries="@array/spinDuration"
         android:entryValues="@array/spinDurationValues"
         />
     <Preference
-        android:key="pref_static_field_key"
+        android:key="pref_static_field_key1"
         android:selectable="false"
         android:title=" "
         android:summary=" "/>
     <Preference
-        android:key="pref_static_field_key"
+        android:key="pref_static_field_key2"
         android:selectable="false"
         android:title="Spin For It"
         android:summary="Copyright \u00A9 2014\nArthur J. Dahm III"/>

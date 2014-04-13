@@ -16,43 +16,46 @@ import android.widget.ImageView;
 
 public class MainActivity extends ActionBarActivity {
     SharedPreferences preferences;
+
     private ImageView spinnerImage;
     private View.OnClickListener spinnerTapListener;
+    private float mSpinDuration;
+    private float mSpinRevolutions;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        InitializeApp();
+        InitializeMainActivity();
     }
 
-    private void InitializeApp() {
+    private void InitializeMainActivity() {
         spinnerImage = (ImageView) findViewById(R.id.imageView);
 
         // Define and attach listeners
         spinnerTapListener = new View.OnClickListener()  {
             public void onClick(View v) {
-                TapSpinner();
+                StartSpinner();
             }
         };
         spinnerImage.setOnClickListener(spinnerTapListener);
-        TapSpinner();
+        changeBasedOnSettings();
+//        StartSpinner();
     }
 
-    public void TapSpinner() {
+    public void StartSpinner() {
         spinnerImage = (ImageView) this.findViewById(R.id.imageView);
         float end = (float)Math.floor(Math.random() * 360);
 
-        RotateAnimation rotateAnim = new RotateAnimation(0f, 3600f + end, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        RotateAnimation rotateAnim = new RotateAnimation(0f, mSpinRevolutions + end, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
         rotateAnim.setInterpolator(new DecelerateInterpolator());
         rotateAnim.setRepeatCount(0);
-        rotateAnim.setDuration(2500);
+        rotateAnim.setDuration((long)mSpinDuration);
         rotateAnim.setFillAfter(true);
         spinnerImage.startAnimation(rotateAnim);
     }
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -69,11 +72,31 @@ public class MainActivity extends ActionBarActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
-            Intent i = new Intent(MainActivity.this, SettingsActivity.class);
+            Intent i = new Intent(this, SettingsActivity.class);
             startActivity(i);
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
+    private void changeBasedOnSettings() {
+        float duration[] = {1000, 5000, 10000, 20000};
+        float rotations[] = {720, 3600, 7200, 14400};
+
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+        int resId = getResources().getIdentifier(sharedPrefs.getString("pref_pointer_style", "hand_512"), "drawable", getPackageName());
+        spinnerImage = (ImageView) this.findViewById(R.id.imageView);
+        spinnerImage.setImageResource(resId);
+
+        int index = Integer.parseInt(sharedPrefs.getString("pref_spin_duration", "1"));
+        mSpinDuration = duration[index];
+        mSpinRevolutions = rotations[index];
+    }
 }
+
+// TODO: Splash screen
+// TODO: Deal with changes to settings better
+// TODO: Move spin duration arrays to resources
+// TODO: Multiple resource files for each pointer
+// TODO: Duration preference resource as int ???

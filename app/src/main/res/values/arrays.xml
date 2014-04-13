@@ -24,10 +24,10 @@
     </string-array>
 
     <string-array name="spinDurationValues">
-        <item name="short">1</item>
-        <item name="normal">5</item>
-        <item name="long">10</item>
-        <item name="very_long">20</item>
+        <item name="short">0</item>
+        <item name="normal">1</item>
+        <item name="long">2</item>
+        <item name="very_long">3</item>
     </string-array>
 
 
