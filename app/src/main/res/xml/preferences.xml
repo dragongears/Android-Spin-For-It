@@ -16,4 +16,14 @@
         android:entries="@array/spinDuration"
         android:entryValues="@array/spinDurationValues"
         />
+    <Preference
+        android:key="pref_static_field_key"
+        android:selectable="false"
+        android:title=" "
+        android:summary=" "/>
+    <Preference
+        android:key="pref_static_field_key"
+        android:selectable="false"
+        android:title="Spin For It"
+        android:summary="Copyright \u00A9 2014\nArthur J. Dahm III"/>
 </PreferenceScreen>
