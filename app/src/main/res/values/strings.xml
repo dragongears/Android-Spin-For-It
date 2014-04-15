@@ -8,6 +8,7 @@
 
     <string name="pointer_style_default">hand</string>
     <string name="spin_duration_default">1</string>
+    <string name="background_color_default">white</string>
 
     <string-array name="pointerStyle">
         <item name="hand">Hand</item>
@@ -35,6 +36,28 @@
         <item name="normal">1</item>
         <item name="long">2</item>
         <item name="very_long">3</item>
+    </string-array>
+
+    <string-array name="backgroundColor">
+        <item name="white">White</item>
+        <item name="gray">Gray</item>
+        <item name="red">Red</item>
+        <item name="orange">Orange</item>
+        <item name="yellow">Yellow</item>
+        <item name="green">Green</item>
+        <item name="blue">Blue</item>
+        <item name="purple">Purple</item>
+    </string-array>
+
+    <string-array name="backgroundColorValues">
+        <item name="white">white</item>
+        <item name="gray">gray</item>
+        <item name="red">red</item>
+        <item name="orange">orange</item>
+        <item name="yellow">yellow</item>
+        <item name="green">green</item>
+        <item name="blue">blue</item>
+        <item name="purple">purple</item>
     </string-array>
 
 

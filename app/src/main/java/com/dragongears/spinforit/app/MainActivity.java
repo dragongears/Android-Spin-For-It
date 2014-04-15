@@ -2,6 +2,7 @@ package com.dragongears.spinforit.app;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -94,6 +95,10 @@ public class MainActivity extends ActionBarActivity {
         int index = Integer.parseInt(sharedPrefs.getString("pref_spin_duration", defaultValue));
         mSpinDuration = duration[index];
         mSpinRevolutions = rotations[index];
+
+        defaultValue = getResources().getString(R.string.background_color_default);
+        resId = getResources().getIdentifier(sharedPrefs.getString("pref_background_color", defaultValue), "color", getPackageName());
+        getWindow().getDecorView().setBackgroundColor(getResources().getColor(resId));
     }
 }
 

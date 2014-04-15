@@ -16,6 +16,14 @@
         android:entries="@array/spinDuration"
         android:entryValues="@array/spinDurationValues"
         />
+    <ListPreference
+        android:key="pref_background_color"
+        android:title="Background Color"
+        android:summary="Define the color for the background"
+        android:defaultValue="@string/background_color_default"
+        android:entries="@array/backgroundColor"
+        android:entryValues="@array/backgroundColorValues"
+        />
     <Preference
         android:key="pref_static_field_key1"
         android:selectable="false"
