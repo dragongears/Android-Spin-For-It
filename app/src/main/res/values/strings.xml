@@ -6,4 +6,36 @@
     <string name="action_time">Spin Duration</string>
     <string name="action_settings">Settings</string>
 
+    <string name="pointer_style_default">hand_512</string>
+    <string name="spin_duration_default">1</string>
+
+    <string-array name="pointerStyle">
+        <item name="hand">Hand</item>
+        <item name="arrow">Arrow</item>
+        <item name="spinner">Spinner</item>
+        <item name="bottle">Bottle</item>
+    </string-array>
+
+    <string-array name="pointerStyleValues">
+        <item name="hand">hand_512</item>
+        <item name="arrow">arrow_512</item>
+        <item name="spinner">spinner_512</item>
+        <item name="bottle">bottle_512</item>
+    </string-array>
+
+    <string-array name="spinDuration">
+        <item name="short">Short</item>
+        <item name="normal">Normal</item>
+        <item name="long">Long</item>
+        <item name="very_long">Very Long</item>
+    </string-array>
+
+    <string-array name="spinDurationValues">
+        <item name="short">0</item>
+        <item name="normal">1</item>
+        <item name="long">2</item>
+        <item name="very_long">3</item>
+    </string-array>
+
+
 </resources>

@@ -19,7 +19,7 @@ public class MainActivity extends ActionBarActivity {
 
     private ImageView spinnerImage;
     private View.OnClickListener spinnerTapListener;
-    private float mSpinDuration;
+    private long mSpinDuration;
     private float mSpinRevolutions;
 
 
@@ -52,7 +52,7 @@ public class MainActivity extends ActionBarActivity {
         RotateAnimation rotateAnim = new RotateAnimation(0f, mSpinRevolutions + end, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
         rotateAnim.setInterpolator(new DecelerateInterpolator());
         rotateAnim.setRepeatCount(0);
-        rotateAnim.setDuration((long)mSpinDuration);
+        rotateAnim.setDuration(mSpinDuration);
         rotateAnim.setFillAfter(true);
         spinnerImage.startAnimation(rotateAnim);
     }
@@ -80,16 +80,20 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void changeBasedOnSettings() {
-        float duration[] = {1000, 5000, 10000, 20000};
-        float rotations[] = {720, 3600, 7200, 14400};
+        long duration[] = {1000, 5000, 10000, 20000};
+        float rotations[] = {720f, 3600f, 7200f, 14400f};
 
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
 
-        int resId = getResources().getIdentifier(sharedPrefs.getString("pref_pointer_style", "hand_512"), "drawable", getPackageName());
+        String defaultValue = getResources().getString(R.string.pointer_style_default);
+
+        int resId = getResources().getIdentifier(sharedPrefs.getString("pref_pointer_style", defaultValue), "drawable", getPackageName());
         spinnerImage = (ImageView) this.findViewById(R.id.imageView);
         spinnerImage.setImageResource(resId);
 
-        int index = Integer.parseInt(sharedPrefs.getString("pref_spin_duration", "1"));
+        defaultValue = getResources().getString(R.string.spin_duration_default);
+
+        int index = Integer.parseInt(sharedPrefs.getString("pref_spin_duration", defaultValue));
         mSpinDuration = duration[index];
         mSpinRevolutions = rotations[index];
     }
@@ -97,6 +101,4 @@ public class MainActivity extends ActionBarActivity {
 
 // TODO: Splash screen
 // TODO: Deal with changes to settings better
-// TODO: Move spin duration arrays to resources
-// TODO: Multiple resource files for each pointer
-// TODO: Duration preference resource as int ???
+// TODO: Multiple resource image files for each pointer

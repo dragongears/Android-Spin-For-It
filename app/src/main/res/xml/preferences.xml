@@ -4,7 +4,7 @@
         android:key="pref_pointer_style"
         android:title="Pointer Style"
         android:summary="Define how the pointer looks"
-        android:defaultValue="hand_512"
+        android:defaultValue="@string/pointer_style_default"
         android:entries="@array/pointerStyle"
         android:entryValues="@array/pointerStyleValues"
         />
@@ -12,7 +12,7 @@
         android:key="pref_spin_duration"
         android:title="Spin Duration"
         android:summary="Define how long the pointer spins"
-        android:defaultValue="1"
+        android:defaultValue="@string/spin_duration_default"
         android:entries="@array/spinDuration"
         android:entryValues="@array/spinDurationValues"
         />
