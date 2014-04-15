@@ -2,6 +2,7 @@ package com.dragongears.spinforit.app;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
@@ -85,24 +86,22 @@ public class MainActivity extends ActionBarActivity {
         float rotations[] = {720f, 3600f, 7200f, 14400f};
 
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+        Resources resources = getResources();
 
-        String defaultValue = getResources().getString(R.string.pointer_style_default);
-        int resId = getResources().getIdentifier(sharedPrefs.getString("pref_pointer_style", defaultValue), "drawable", getPackageName());
+        String defaultValue = resources.getString(R.string.pointer_style_default);
+        int resId = resources.getIdentifier(sharedPrefs.getString("pref_pointer_style", defaultValue), "drawable", getPackageName());
         spinnerImage = (ImageView) this.findViewById(R.id.imageView);
         spinnerImage.setImageResource(resId);
 
-        defaultValue = getResources().getString(R.string.spin_duration_default);
+        defaultValue = resources.getString(R.string.spin_duration_default);
         int index = Integer.parseInt(sharedPrefs.getString("pref_spin_duration", defaultValue));
         mSpinDuration = duration[index];
         mSpinRevolutions = rotations[index];
 
-        defaultValue = getResources().getString(R.string.background_color_default);
-        resId = getResources().getIdentifier(sharedPrefs.getString("pref_background_color", defaultValue), "color", getPackageName());
-        getWindow().getDecorView().setBackgroundColor(getResources().getColor(resId));
+        defaultValue = resources.getString(R.string.background_color_default);
+        resId = resources.getIdentifier(sharedPrefs.getString("pref_background_color", defaultValue), "color", getPackageName());
+        getWindow().getDecorView().setBackgroundColor(resources.getColor(resId));
     }
 }
 
-// TODO: Splash screen
 // TODO: Deal with changes to settings better
-// TODO: Background color
-// TODO: Spin on start
