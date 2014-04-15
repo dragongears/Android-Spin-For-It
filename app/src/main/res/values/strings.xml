@@ -6,7 +6,7 @@
     <string name="action_time">Spin Duration</string>
     <string name="action_settings">Settings</string>
 
-    <string name="pointer_style_default">hand_512</string>
+    <string name="pointer_style_default">hand</string>
     <string name="spin_duration_default">1</string>
 
     <string-array name="pointerStyle">
@@ -17,10 +17,10 @@
     </string-array>
 
     <string-array name="pointerStyleValues">
-        <item name="hand">hand_512</item>
-        <item name="arrow">arrow_512</item>
-        <item name="spinner">spinner_512</item>
-        <item name="bottle">bottle_512</item>
+        <item name="hand">hand</item>
+        <item name="arrow">arrow</item>
+        <item name="spinner">spinner</item>
+        <item name="bottle">bottle</item>
     </string-array>
 
     <string-array name="spinDuration">

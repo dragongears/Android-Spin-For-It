@@ -86,13 +86,11 @@ public class MainActivity extends ActionBarActivity {
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
 
         String defaultValue = getResources().getString(R.string.pointer_style_default);
-
         int resId = getResources().getIdentifier(sharedPrefs.getString("pref_pointer_style", defaultValue), "drawable", getPackageName());
         spinnerImage = (ImageView) this.findViewById(R.id.imageView);
         spinnerImage.setImageResource(resId);
 
         defaultValue = getResources().getString(R.string.spin_duration_default);
-
         int index = Integer.parseInt(sharedPrefs.getString("pref_spin_duration", defaultValue));
         mSpinDuration = duration[index];
         mSpinRevolutions = rotations[index];
@@ -101,4 +99,5 @@ public class MainActivity extends ActionBarActivity {
 
 // TODO: Splash screen
 // TODO: Deal with changes to settings better
-// TODO: Multiple resource image files for each pointer
+// TODO: Background color
+// TODO: Spin on start
