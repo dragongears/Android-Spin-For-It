@@ -33,5 +33,5 @@
         android:key="pref_static_field_key2"
         android:selectable="false"
         android:title="Spin For It"
-        android:summary="Copyright \u00A9 2014\nArthur J. Dahm III"/>
+        android:summary="Copyright \u00A9 2014\nArthur J. Dahm III\n\ndragongears.com"/>
 </PreferenceScreen>

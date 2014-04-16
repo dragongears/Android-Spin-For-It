@@ -3,7 +3,6 @@ package com.dragongears.spinforit.app;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
-import android.graphics.Color;
 import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -19,36 +18,39 @@ import android.widget.ImageView;
 public class MainActivity extends ActionBarActivity {
     SharedPreferences preferences;
 
-    private ImageView spinnerImage;
-    private View.OnClickListener spinnerTapListener;
+    private ImageView pointerImageView;
+    private View.OnClickListener pointerTapListener;
     private long mSpinDuration;
     private float mSpinRevolutions;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
+
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
+
         InitializeMainActivity();
     }
 
     private void InitializeMainActivity() {
-        spinnerImage = (ImageView) findViewById(R.id.imageView);
+        // Get the pointer ImageView resource
+        pointerImageView = (ImageView)findViewById(R.id.imageView);
 
         // Define and attach listeners
-        spinnerTapListener = new View.OnClickListener()  {
+        pointerTapListener = new View.OnClickListener()  {
             public void onClick(View v) {
                 StartSpinner();
             }
         };
-        spinnerImage.setOnClickListener(spinnerTapListener);
+        pointerImageView.setOnClickListener(pointerTapListener);
+
+        // Read in saved settings
         changeBasedOnSettings();
-//        StartSpinner();
     }
 
     public void StartSpinner() {
-        spinnerImage = (ImageView) this.findViewById(R.id.imageView);
         float end = (float)Math.floor(Math.random() * 360);
 
         RotateAnimation rotateAnim = new RotateAnimation(0f, mSpinRevolutions + end, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
@@ -56,7 +58,7 @@ public class MainActivity extends ActionBarActivity {
         rotateAnim.setRepeatCount(0);
         rotateAnim.setDuration(mSpinDuration);
         rotateAnim.setFillAfter(true);
-        spinnerImage.startAnimation(rotateAnim);
+        pointerImageView.startAnimation(rotateAnim);
     }
 
     @Override
@@ -82,22 +84,27 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void changeBasedOnSettings() {
-        long duration[] = {1000, 5000, 10000, 20000};
-        float rotations[] = {720f, 3600f, 7200f, 14400f};
+        String defaultValue;
+        int resId;
+
+        long duration[] = {1000, 5000, 10000, 20000};   // Time
+        float revolutions[] = {720f, 3600f, 7200f, 14400f}; // Number of revolutions
 
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
         Resources resources = getResources();
 
-        String defaultValue = resources.getString(R.string.pointer_style_default);
-        int resId = resources.getIdentifier(sharedPrefs.getString("pref_pointer_style", defaultValue), "drawable", getPackageName());
-        spinnerImage = (ImageView) this.findViewById(R.id.imageView);
-        spinnerImage.setImageResource(resId);
+        // Pointer image
+        defaultValue = resources.getString(R.string.pointer_style_default);
+        resId = resources.getIdentifier(sharedPrefs.getString("pref_pointer_style", defaultValue), "drawable", getPackageName());
+        pointerImageView.setImageResource(resId);
 
+        // Spin duration
         defaultValue = resources.getString(R.string.spin_duration_default);
         int index = Integer.parseInt(sharedPrefs.getString("pref_spin_duration", defaultValue));
         mSpinDuration = duration[index];
-        mSpinRevolutions = rotations[index];
+        mSpinRevolutions = revolutions[index];
 
+        // Background color
         defaultValue = resources.getString(R.string.background_color_default);
         resId = resources.getIdentifier(sharedPrefs.getString("pref_background_color", defaultValue), "color", getPackageName());
         getWindow().getDecorView().setBackgroundColor(resources.getColor(resId));
@@ -105,3 +112,4 @@ public class MainActivity extends ActionBarActivity {
 }
 
 // TODO: Deal with changes to settings better
+// TODO: Better about screen
