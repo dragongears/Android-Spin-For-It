@@ -4,7 +4,9 @@
     <string name="app_name">Spin For It</string>
     <string name="action_time">Spin Duration</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_settings">Setting</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="prefs_about_title">About Spin For It</string>
+    <string name="prefs_web_page">Visit dragongears.com</string>
 
     <string name="pointer_style_default">hand</string>
     <string name="spin_duration_default">1</string>
