@@ -26,8 +26,8 @@
         />
     <CheckBoxPreference
         android:title="Auto Spin"
-        android:defaultValue="true"
-        android:summary="Spin pointer when app starts"
+        android:defaultValue="@string/auto_spin_default"
+        android:summary="Spin the pointer whenever it becomes visible"
         android:key="pref_spin_auto" />
     <PreferenceCategory
         android:title="@string/prefs_about_title"

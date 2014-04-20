@@ -11,6 +11,7 @@
     <string name="pointer_style_default">hand</string>
     <string name="spin_duration_default">1</string>
     <string name="background_color_default">white</string>
+    <string name="auto_spin_default">false</string>
 
     <string-array name="pointerStyle">
         <item name="hand">Hand</item>
