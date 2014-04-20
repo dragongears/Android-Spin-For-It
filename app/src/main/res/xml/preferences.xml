@@ -24,6 +24,11 @@
         android:entries="@array/backgroundColor"
         android:entryValues="@array/backgroundColorValues"
         />
+    <CheckBoxPreference
+        android:title="Auto Spin"
+        android:defaultValue="true"
+        android:summary="Spin pointer when app starts"
+        android:key="pref_spin_auto" />
     <PreferenceCategory
         android:title="@string/prefs_about_title"
         android:key="pref_key_storage_settings">

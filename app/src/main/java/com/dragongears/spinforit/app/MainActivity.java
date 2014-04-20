@@ -22,6 +22,7 @@ public class MainActivity extends ActionBarActivity {
     private View.OnClickListener pointerTapListener;
     private long mSpinDuration;
     private float mSpinRevolutions;
+    private boolean mFirstCreate = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +49,11 @@ public class MainActivity extends ActionBarActivity {
 
         // Read in saved settings
         changeBasedOnSettings();
+
+        if (mFirstCreate) {
+            mFirstCreate = false;
+            StartSpinner();
+        }
     }
 
     public void StartSpinner() {
@@ -108,6 +114,9 @@ public class MainActivity extends ActionBarActivity {
         defaultValue = resources.getString(R.string.background_color_default);
         resId = resources.getIdentifier(sharedPrefs.getString("pref_background_color", defaultValue), "color", getPackageName());
         getWindow().getDecorView().setBackgroundColor(resources.getColor(resId));
+
+        // Auto spin
+        mFirstCreate = mFirstCreate && sharedPrefs.getBoolean("pref_spin_auto", true);
     }
 }
 
