@@ -46,14 +46,15 @@ public class MainActivity extends ActionBarActivity {
             }
         };
         pointerImageView.setOnClickListener(pointerTapListener);
-
-        // Read in saved settings
-        changeBasedOnSettings();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
+
+        // Read in saved settings
+        changeBasedOnSettings();
+
         if (mAutoSpin) {
             StartSpinner();
         }
