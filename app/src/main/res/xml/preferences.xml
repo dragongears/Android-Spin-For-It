@@ -19,7 +19,7 @@
     <ListPreference
         android:key="pref_background_color"
         android:title="Background Color"
-        android:summary="Define the color for the background"
+        android:summary="Define the color behind the pointer"
         android:defaultValue="@string/background_color_default"
         android:entries="@array/backgroundColor"
         android:entryValues="@array/backgroundColorValues"
