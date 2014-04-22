@@ -50,6 +50,7 @@
         <item name="green">Green</item>
         <item name="blue">Blue</item>
         <item name="purple">Purple</item>
+        <item name="brown">Brown</item>
     </string-array>
 
     <string-array name="backgroundColorValues">
@@ -61,6 +62,7 @@
         <item name="green">green</item>
         <item name="blue">blue</item>
         <item name="purple">purple</item>
+        <item name="brown">brown</item>
     </string-array>
 
 

@@ -19,7 +19,6 @@ public class MainActivity extends ActionBarActivity {
     SharedPreferences preferences;
 
     private ImageView pointerImageView;
-    private View.OnClickListener pointerTapListener;
     private long mSpinDuration;
     private float mSpinRevolutions;
     private boolean mAutoSpin = true;
@@ -40,12 +39,11 @@ public class MainActivity extends ActionBarActivity {
         pointerImageView = (ImageView)findViewById(R.id.imageView);
 
         // Define and attach listeners
-        pointerTapListener = new View.OnClickListener()  {
+        pointerImageView.setOnClickListener(new View.OnClickListener()  {
             public void onClick(View v) {
                 StartSpinner();
             }
-        };
-        pointerImageView.setOnClickListener(pointerTapListener);
+        });
     }
 
     @Override
@@ -127,3 +125,4 @@ public class MainActivity extends ActionBarActivity {
 
 // TODO: Deal with changes to settings better
 // TODO: Better about screen
+// TODO: Version numbers
