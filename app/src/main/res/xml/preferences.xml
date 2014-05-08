@@ -29,18 +29,4 @@
         android:defaultValue="@string/auto_spin_default"
         android:summary="Spin the pointer whenever it becomes visible"
         android:key="pref_spin_auto" />
-    <PreferenceCategory
-        android:title="@string/prefs_about_title"
-        android:key="pref_key_storage_settings">
-        <Preference
-            android:key="pref_static_field_key"
-            android:selectable="false"
-            android:title="Spin For It"
-            android:summary="Copyright \u00A9 2014\nArthur J. Dahm III"/>
-        <Preference android:title="@string/prefs_web_page" >
-            <intent android:action="android.intent.action.VIEW"
-                android:data="http://dragongears.com" />
-        </Preference>
-    </PreferenceCategory>
-
 </PreferenceScreen>

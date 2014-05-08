@@ -87,6 +87,8 @@ public class MainActivity extends ActionBarActivity {
             Intent i = new Intent(this, SettingsActivity.class);
             startActivity(i);
             return true;
+        } else if (id == R.id.action_about) {
+            AboutBox.Show(MainActivity.this);
         }
         return super.onOptionsItemSelected(item);
     }

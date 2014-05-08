@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+  android:id="@+id/aboutView"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent">
+  <LinearLayout android:id="@+id/aboutLayout"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="5dp">
+
+      <TextView
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          android:text="Version"
+          android:id="@+id/versionText"
+          android:gravity="center_horizontal"
+          android:layout_marginTop="24dp" />
+
+      <TextView
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          android:text="Copyright \u00A9 2014\nArthur J. Dahm III"
+          android:id="@+id/copyrightText"
+          android:gravity="center_horizontal"
+          android:layout_marginTop="6dp" />
+
+      <TextView android:id="@+id/aboutText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+          android:text="Default text"
+          android:gravity="center_horizontal"
+          android:layout_marginTop="12dp"
+          android:layout_marginBottom="24dp" />
+  </LinearLayout>
+</ScrollView>
