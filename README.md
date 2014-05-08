@@ -7,7 +7,7 @@ A spinning decision maker app written in Java for Android.
 Unless otherwise specified, all content, including all source code files and
 documentation files in this repository are:
 
-Copyright (c) 2014 LG Electronics
+Copyright (c) 2014 Arthur J. Dahm III
 
 Unless otherwise specified or set forth in the NOTICE file, all content,
 including all source code files and documentation files in this repository are:
